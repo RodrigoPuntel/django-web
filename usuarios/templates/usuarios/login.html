@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - BetterYou</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo">Better<span>You</span></h1>
+
+        {% if form.errors %}
+            <div class="error-text">
+                E-mail ou senha incorretos. Por favor, tente novamente
+                <span class="icon-error">❗</span>
+            </div>
+        {% endif %}
+
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            <div class="form-group {% if form.username.errors %}error{% endif %}">
+                <label for="id_username">E-mail</label>
+                {{ form.username }}
+            </div>
+
+            <div class="form-group {% if form.password.errors %}error{% endif %}">
+                <label for="id_password">Senha</label>
+                {{ form.password }}
+            </div>
+
+            <a class="link" href="#">Esqueceu sua senha?</a>
+
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+
+        <hr>
+
+        <div class="secondary">
+            <p>Ainda não possui uma conta?</p>
+            <a class="link-secondary" href="{% url 'cadastro' %}">Criar conta</a>
+        </div>
+    </div>
+</body>
+</html>

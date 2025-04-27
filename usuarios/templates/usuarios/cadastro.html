@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro - BetterYou</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'login' %}" class="back-link">← voltar</a>
+        <h1 class="logo">Better<span>You</span></h1>
+        <h2 class="subtitle">Cadastro</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="{% if form.nome_completo.errors %}error{% endif %}">
+                {{ form.nome_completo }}
+            </div>
+            <div class="{% if form.email.errors %}error{% endif %}">
+                {{ form.email }}
+            </div>
+            <div class="{% if form.genero.errors %}error{% endif %}">
+                {{ form.genero }}
+                {% for error in form.genero.errors %}
+                    <p class="error-message">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="{% if form.cargo.errors %}error{% endif %}">
+                {{ form.cargo }}
+                {% for error in form.cargo.errors %}
+                    <p class="error-message">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="{% if form.password1.errors %}error{% endif %}">
+                {{ form.password1 }}
+                {% for error in form.password1.errors %}
+                    <p class="error-message">{{ error }}</p>
+                {% endfor %}
+            </div>            
+            
+            <div class="{% if form.password2.errors %}error{% endif %}">
+                {{ form.password2 }}
+                {% for error in form.password2.errors %}
+                    <p class="error-message">{{ error }}</p>
+                {% endfor %}
+            </div>   
+            <button type="submit">Criar conta</button>
+        </form>
+
+        <hr>
+
+        <div class="secondary">
+            <p>Já possui uma conta?</p>
+            <a class="link-secondary" href="{% url 'login' %}">Fazer login</a>
+        </div>
+    </div>
+    {% load static %}
+<script src="{% static 'js/valida.js' %}"></script>
+
+</body>
+</html>

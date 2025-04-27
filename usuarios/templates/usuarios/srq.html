@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de saúde mental - BetterYou</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #005b8d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            margin-bottom: 10px;
+        }
+
+        .options {
+            display: flex;            
+        }
+
+        .options label {
+            margin-right: 20px;
+        }
+
+        .btn-submit {
+            background-color: #006f94;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #004d6e;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #005b8d;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Questionário de saúde mental</h1>
+    </div>
+
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <!-- Perguntas do Questionário -->
+            <div class="question">
+                <h3>1. Você tem dores de cabeça frequentes?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q1" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>2. Tem falta de apetite?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q2" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>3. Dorme mal?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q3" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>4. Assusta-se com facilidade?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q4" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>5. Tem tremores nas mãos?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q5" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>6. Sente-se nervoso(a), tenso(a) ou preocupado(a)?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q6" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>7. Tem má digestão?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q7" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>8. Tem dificuldades de pensar com clareza?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q8" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>9. Tem se sentido triste ultimamente?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q9" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>10. Tem chorado mais do que costume?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q10" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>11. Encontra dificuldades para realizar com satisfação suas atividades diárias?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q11" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>12. Tem dificuldades para tomar decisões?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q12" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>13. Tem dificuldades no serviço (seu trabalho é penoso, lhe causa sofrimento)?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q13" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>14. É incapaz de desempenhar um papel útil em sua vida?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q14" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q14" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>15. Tem perdido o interesse pelas coisas?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q15" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>16. Você se sente uma pessoa inútil, sem préstimo?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q16" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q16" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>17. Tem tido ideia de acabar com a vida?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q17" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q17" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>18. Sente-se cansado(a) o tempo todo?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q18" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q18" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>19. Você se cansa com facilidade?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q19" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q19" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>20. Tem sensações desagradáveis no estômago?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q20" value="sim" required> Sim</label>
+                    <label><input type="radio" name="q20" value="nao"> Não</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+    </div>
+            <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&copy; BetterYou @2025. Todos os direitos reservados.</p>
+    </div>
+
+</body>
+</html>

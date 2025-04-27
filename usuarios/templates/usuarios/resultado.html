@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado - BetterYou</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #005b8d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .emoji {
+            font-size: 50px;
+            margin: 10px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        .result-text {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #006f94;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #004d6e;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #005b8d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Seu Resultado</h1>
+    </div>
+
+    <div class="container">
+        <!-- Emojis de avaliação -->
+        <div class="emoji">
+            {% if resultado == 'bom' %}
+                😊
+            {% elif resultado == 'médio' %}
+                😐
+            {% else %}
+                😞
+            {% endif %}
+        </div>
+        <div class="result-text">
+            {% if resultado == 'bom' %}
+                Seu estado de saúde mental está ótimo! Continue assim!
+            {% elif resultado == 'médio' %}
+                Você apresenta sinais de stress. Procure melhorar sua saúde mental.
+            {% else %}
+                Seu estado de saúde mental está comprometido. É recomendável buscar apoio.
+            {% endif %}
+        </div>
+
+        <a href="{% url 'home' %}" class="btn">Voltar para página inicial</a>
+        <a href="{% url 'dashboard' %}" class="btn">Ir para Dashboard</a>
+    </div>
+
+    <div class="footer">
+        <p>&copy; BetterYou 2025. Todos os direitos reservados.</p>
+    </div>
+
+</body>
+</html>
